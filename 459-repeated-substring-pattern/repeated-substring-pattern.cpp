@@ -14,11 +14,6 @@ public:
         }
         int val = kmp[n-1];
         if(val==0) return false;
-        int idx = n-1;
-        while(idx>=val){
-            if(kmp[idx]!=val) return false;
-            idx = idx-val;
-        }
         return n%(n-val)==0;
     }
 };
