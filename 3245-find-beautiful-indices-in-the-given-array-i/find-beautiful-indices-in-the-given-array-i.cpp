@@ -21,7 +21,7 @@ public:
                 i++; j++;
                 if(j==n){
                     indices.push_back(i-n);
-                    j = 0; i = i-n+1;
+                    j = lps[j-1];
                 }
             }
             else if(j>0) j = lps[j-1];
