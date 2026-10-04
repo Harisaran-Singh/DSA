@@ -1,9 +1,8 @@
 class Solution {
 public:
-    void dfs(int node,unordered_map<int,vector<int>>& adj,unordered_set<int>& vis,vector<int>& ans){
-        vis.insert(node);
+    void dfs(int node,unordered_map<int,vector<int>>& adj,int prev,vector<int>& ans){
         ans.push_back(node);
-        for(int u:adj[node]) if(!vis.count(u)) dfs(u,adj,vis,ans);
+        for(int u:adj[node]) if(u!=prev) dfs(u,adj,node,ans);
     }
     vector<int> restoreArray(vector<vector<int>>& adjacentPairs) {
         unordered_map<int,vector<int>> adj;
@@ -14,8 +13,7 @@ public:
         int node;
         for(auto& it:adj) if(it.second.size()==1) node = it.first;
         vector<int> ans;
-        unordered_set<int> vis;
-        dfs(node,adj,vis,ans);
+        dfs(node,adj,INT_MAX,ans);
         return ans;
     }
 };
