@@ -13,26 +13,15 @@ public:
                     else ans++;
                     i+=2;
                 }
-                else if(i<n && s[i+1]=='('){
+                else if((i<n-1 && s[i+1]=='(') || i==n-1){
                     if(!st.empty()){
                         st.pop();
                         ans++;
-                        i++;
                     }
                     else{
                         ans+=2;
-                        i++;
                     }
-                }
-                else{
-                    if(!st.empty()){
-                        st.pop();
-                        ans++;
-                        i++;
-                    }
-                    else{
-                        ans+=2; i++;
-                    }
+                    i++;
                 }
             }
         }
