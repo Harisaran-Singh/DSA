@@ -8,7 +8,7 @@ public:
         while(i<n){
             if(s[i]=='(') st.push(s[i++]);
             else{
-                if(i<n && s[i+1]==')'){
+                if(i<n-1 && s[i+1]==')'){
                     if(!st.empty()) st.pop();
                     else ans++;
                     i+=2;
