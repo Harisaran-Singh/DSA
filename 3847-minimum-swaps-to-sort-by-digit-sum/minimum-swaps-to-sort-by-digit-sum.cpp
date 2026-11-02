@@ -25,22 +25,21 @@ public:
         }
 
         vector<bool> vis(n, false);
-        int ans = 0;
+        int cycles = 0;
 
         for (int i = 0; i < n; i++) {
             if (vis[i]) continue;
 
-            int j = i, cnt = 0;
+            int j = i;
 
             while (!vis[j]) {
                 vis[j] = true;
-                cnt++;
                 j = pos[nums[j]];
             }
 
-            ans += cnt - 1;
+            cycles++;
         }
 
-        return ans;
+        return n-cycles;
     }
 };
