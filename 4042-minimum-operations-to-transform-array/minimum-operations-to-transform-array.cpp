@@ -7,7 +7,8 @@ public:
         int last = nums2[n];
         for(int i=0;i<n;i++){
             ops+=1LL*abs(nums1[i]-nums2[i]);
-            if(diff!=0) diff = min({diff,abs(nums1[i]-last),abs(nums2[i]-last)});
+            if(diff==0) continue;
+            diff = min({diff,abs(nums1[i]-last),abs(nums2[i]-last)});
             if((nums1[i]<=last && last<=nums2[i]) || (nums1[i]>=last && last>=nums2[i])) diff = 0;
         }
         ops+=1LL*diff;
